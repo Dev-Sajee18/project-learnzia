@@ -7,11 +7,6 @@ import {
 } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import Cart from './Cart/Cart ';
-
-
-
-
-
 const Navbar = (props) => {
   const { cart } = useSelector((state) => state.cart);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,9 +18,7 @@ const Navbar = (props) => {
     setIsLoggedIn(userInfo ? true : false);
 
   }, []);
-
-
-  const handleLogout = () => {
+const handleLogout = () => {
     localStorage.removeItem('UserInfo');
     setIsLoggedIn(false);
     localStorage.removeItem("isAdmin")
@@ -34,10 +27,7 @@ const Navbar = (props) => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
-
-
-  return (
+return (
     <>
       <nav class="header" style={{ zIndex: "999" }}>
         <div class="navbar">
@@ -76,7 +66,7 @@ const Navbar = (props) => {
 
           </ul>
 
-          {props.auth ?
+          {/* {props.auth ?
             <div class="buttons">
             </div>
             
@@ -85,7 +75,7 @@ const Navbar = (props) => {
               <NavLink to="/dashboard">Dashboard</NavLink>
               <NavLink to="/logout">Logout</NavLink>
             </>
-          }
+          } */}
           <div style={{ position: 'relative', display: 'inline-block' }}>
       <AiOutlineShoppingCart
         size={35}
@@ -119,6 +109,3 @@ const Navbar = (props) => {
 }
 
 export default Navbar;
-
-
-
